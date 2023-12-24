@@ -1,7 +1,8 @@
 # Analyze-Data-in-a-Model-Car
 
-
+```SQL
 ## Are there products with high inventory but low sales? How can we optimize the inventory of such products?
+
 
 SELECT productCode, productName, quantityInStock, total_orders, (quantityInStock - total_orders) as Inventory_shortage
  FROM (
@@ -24,6 +25,7 @@ SELECT productCode, productName, quantityInStock, total_orders, (quantityInStock
 
  ## Are all the warehouses currently in use still necessary? How can we review warehouses that have low or inactive inventory?
 
+
 select
 w.warehouseCode, 
 w.warehousename,
@@ -42,7 +44,6 @@ from products as p
 join warehouses as w on p.warehouseCode = w.warehouseCode
 group by w.warehouseCode, p.productname, w.warehousename
 order by total_inventory;
-
 
 ## Is there a relationship between product prices and their sales levels? How can price adjustments impact sales?
 
@@ -158,7 +159,7 @@ c.creditLimit
 Having 
 sum(p.amount) < c.creditLimit 
 order by payment_amount ;
-
+'''
 
 Recommendation
 
